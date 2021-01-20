@@ -1,4 +1,8 @@
+
+@import "/style/footer.css";
+
 @import "middle.css";
+
 
 body {
   font-family: 'Oswald', sans-serif;
