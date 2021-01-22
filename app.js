@@ -17,6 +17,7 @@ const todoListElement = document.getElementById('todoList');
 todoListElement.onclick = (e) => {
   if (e.target.nodeName === 'P') editTodoHandle(e);
   if (e.target.nodeName === 'BUTTON') deleteTodoHandle(e);
+  if (e.target.nodeName === 'DIV') markDoneTaskHandle(e);
 };
 
 // CRUD Operations
@@ -48,6 +49,7 @@ function displayTodoList() {
   toDoList.forEach((todo) => {
     const liElement = `
     <li id="${todo.id}" class="d-flex justify-content-between align-items-center my-1">
+      <div class="btn btn-sm btn-primary mx-1"></div>
       <p class="m-0 w-100">${todo.task}</p>
       <button class="btn btn-danger btn-sm mx-1">Delete</button>
     </li>
@@ -97,4 +99,17 @@ function deleteTodoHandle(e) {
   toDoList = todoFiltered;
   // Update UI
   displayTodoList();
+}
+
+// Mark done the task
+function markDoneTaskHandle(e) {
+  // Retrieve task ID
+  const todoDone = toDoList.map((todo) =>
+    todo.id === parseInt(e.target.parentNode.id)
+      ? { ...todo, done: !todo.done }
+      : { ...todo }
+  );
+  toDoList = todoDone;
+  
+  console.log(toDoList);
 }
