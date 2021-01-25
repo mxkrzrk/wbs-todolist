@@ -1,21 +1,16 @@
+@import 'header.css';
+@import 'middle.css';
+@import 'footer.css';
 
-@import "/style/footer.css";
-
-@import "middle.css";
-
+:root {
+  --primary-color: #f29f05;
+  --secondary-color: #f2cb05;
+  --dark-color: #262626;
+  --light-color: #f2f2f2;
+}
 
 body {
   font-family: 'Oswald', sans-serif;
   font-size: 16px;
-}
-.headerContent {
-  display: flex;
-  height: auto;
-  border: 1px solid red;
-}
-h1 {
-  padding: 1em 0em 0.5em 1.5em;
-}
-img {
-  padding: 0.75em 0 0 0;
+  text-rendering: optimizeLegibility;
 }

@@ -1,0 +1,8 @@
+.header-todolist {
+  background-color: var(--primary-color);
+}
+
+.header-todolist h1 {
+  margin-bottom: 0;
+  margin-left: 0.5rem;
+}
