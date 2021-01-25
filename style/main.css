@@ -1,0 +1,38 @@
+.form-todolist {
+  box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  position: relative;
+}
+
+.form-todolist input {
+  border-radius: inherit;
+  height: 100%;
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid transparent;
+  transition: border 0.3s ease-in-out;
+}
+
+.form-todolist input:focus {
+  outline: none;
+  border: 2px solid rgba(242, 203, 5, 0.8);
+}
+
+.form-todolist button {
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+  background-color: transparent;
+  border: none;
+  border-radius: inherit;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 10%;
+}
+
+.form-todolist button:focus,
+.form-todolist button:hover {
+  outline: none;
+  background-color: rgba(242, 203, 5, 0.6);
+  color: var(--dark-color);
+}
