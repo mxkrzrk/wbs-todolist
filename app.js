@@ -16,8 +16,8 @@ submitForm.addEventListener('submit', createTodoHandle);
 const todoListElement = document.getElementById('todoList');
 todoListElement.onclick = (e) => {
   if (e.target.nodeName === 'P') editTodoHandle(e);
-  if (e.target.nodeName === 'BUTTON') deleteTodoHandle(e);
-  if (e.target.nodeName === 'DIV') markDoneTaskHandle(e);
+  if (e.target.parentNode.nodeName === 'BUTTON') deleteTodoHandle(e);
+  if (e.target.parentNode.nodeName === 'DIV') markDoneTaskHandle(e);
 };
 
 // CRUD Operations
@@ -45,13 +45,31 @@ function displayTodoList() {
   const todoListElement = document.getElementById('todoList');
   // Clear the list previews
   todoListElement.innerHTML = '';
+  toDoList.length > 0
+    ? todoListElement.classList.add('todolist')
+    : todoListElement.classList.remove('todolist');
+  // Order the list based on done property
+  toDoList.sort((prev, next) => {
+    if (prev.done > next.done) return 1;
+    if (prev.done < next.done) return -1;
+  });
   // Create the li for each todo in the object
   toDoList.forEach((todo) => {
     const liElement = `
-    <li id="${todo.id}" class="d-flex justify-content-between align-items-center my-1">
-      <div class="btn btn-sm btn-primary mx-1"></div>
-      <p class="m-0 w-100">${todo.task}</p>
-      <button class="btn btn-danger btn-sm mx-1">Delete</button>
+    <li id="${
+      todo.id
+    }" class="d-flex justify-content-between align-items-center">
+      <div>${
+        todo.done
+          ? '<i class="fas fa-check-circle"></i>'
+          : '<i class="fas fa-circle"></i>'
+      }</div>
+      ${
+        todo.done
+          ? `<p class="mb-0 w-100 mx-2 text-decoration-line-through">${todo.task}</p>`
+          : `<p class="mb-0 w-100 mx-2">${todo.task}</p>`
+      }
+      <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
     </li>
     `;
     todoListElement.insertAdjacentHTML('beforeend', liElement);
@@ -73,6 +91,8 @@ function editTodoHandle(e) {
       saveUpdateTodoHandle(e);
     }
   };
+  // Update UI
+  displayTodoList();
 }
 
 // Save (Update) the todo updated
@@ -93,7 +113,7 @@ function saveUpdateTodoHandle(e) {
 function deleteTodoHandle(e) {
   // Filter todo in the list of todos
   const todoFiltered = toDoList.filter(
-    (todo) => todo.id !== parseInt(e.target.parentNode.id)
+    (todo) => todo.id !== parseInt(e.target.parentNode.parentNode.id)
   );
   // Update ToDo list
   toDoList = todoFiltered;
@@ -105,11 +125,11 @@ function deleteTodoHandle(e) {
 function markDoneTaskHandle(e) {
   // Retrieve task ID
   const todoDone = toDoList.map((todo) =>
-    todo.id === parseInt(e.target.parentNode.id)
+    todo.id === parseInt(e.target.parentNode.parentNode.id)
       ? { ...todo, done: !todo.done }
       : { ...todo }
   );
   toDoList = todoDone;
-  
-  console.log(toDoList);
+  // Update UI
+  displayTodoList();
 }

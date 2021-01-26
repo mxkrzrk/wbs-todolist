@@ -30,7 +30,9 @@
     <title>JustDoIt</title>
   </head>
   <body>
-    <div class="container-fluid">
+    <div
+      class="container-fluid d-flex flex-column justify-content-between h-100"
+    >
       <header class="row">
         <div
           class="header-todolist d-flex justify-content-center align-items-center py-4"
@@ -39,9 +41,7 @@
           <h1>JustDoIt</h1>
         </div>
       </header>
-    </div>
-    <div class="container">
-      <main class="row">
+      <main class="row h-100">
         <div class="col-12 col-lg-6 offset-lg-3 py-5">
           <form
             id="taskInputForm"
@@ -56,13 +56,11 @@
               <i class="fas fa-location-arrow"></i>
             </button>
           </form>
-          <div class="col-12 col-lg-6 offset-lg-3">
+          <div class="py-4">
             <ul id="todoList"></ul>
           </div>
         </div>
       </main>
-    </div>
-    <div class="container-fluid">
       <footer class="row py-4 footer-todolist">
         <div class="col-6 col-md-4 text-center align-self-center">
           <div

@@ -28,6 +28,7 @@
   right: 0;
   height: 100%;
   width: 10%;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .form-todolist button:focus,
@@ -35,4 +36,34 @@
   outline: none;
   background-color: rgba(242, 203, 5, 0.6);
   color: var(--dark-color);
+}
+
+.todolist {
+  padding-left: 0;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+.todolist li {
+  margin: 0.5rem 0;
+}
+
+.todolist li div > i {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.todolist li button {
+  border-radius: 10px;
+  padding: 0;
+}
+
+.todolist li button > i {
+  color: var(--light-color);
+  padding: 0.5rem;
 }
