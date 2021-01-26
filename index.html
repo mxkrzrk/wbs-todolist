@@ -15,81 +15,78 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./style/index.css" />
-
-    <script src="https://kit.fontawesome.com/6f41ac1986.js" crossorigin="anonymous"></script> 
-
-    <script src="./app.js" defer></script>
-
-    <title>JustDoIt</title>
-  </head>
-
-  <body>
-
-    <header>
-      <div class="headerContent">
-        <h1>JustDoIt</h1>
-        <img src="./style/hand and pencil.png" />
-      </div>
-    </header>
-    <main>
-      <div class="container-fluid">
-        <div class="row">
-          <form id="taskInputForm" action="#">
-            <div class="row">
-              <div class="col-12 col-md-10 mx-sm-3 mb-2 mt-2">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="taskInput"
-                  placeholder="write your task here"
-                />
-              </div>
-              <div class="col-12 col-md-1">
-                <button
-                  type="submit"
-                  class="btn col-12 btn-primary mx-sm-3 mb-2 mt-2"
-                  id="submitButton"
-                >
-                  Enter task
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="row">
-          <ul id="todoList"></ul>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <div class='container'>
-            <div class="row text-center ">
-                <div class="col-12 col-md-4 align-self-center">
-                  <h2>JustDoIt</h2>
-                </div>
-
-                <div class="col-12 col-md-4 align-self-center">
-                  <h5>&copy; Copyright 2021 - JustDoIt </h5>
-                </div>
-
-                <div class="col-12 col-md-4 align-self-center">
-                  <h4>Follow Us</h4>
-                  <i class="fab fa-facebook-square"></i>
-                  <i class="fab fa-instagram-square"></i>
-                  <i class="fab fa-youtube-square"></i>
-                  <i class="fab fa-twitter-square"></i>
-
-
-                </div>	
-
-               </div>
-          </div>  <!---container close---->
-  </footer>
-
+    <script
+      src="https://kit.fontawesome.com/6f41ac1986.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
       crossorigin="anonymous"
+      defer
     ></script>
+    <script src="./app.js" defer></script>
+    <title>JustDoIt</title>
+  </head>
+  <body>
+    <div
+      class="container-fluid d-flex flex-column justify-content-between h-100"
+    >
+      <header class="row">
+        <div
+          class="header-todolist d-flex justify-content-center align-items-center py-4"
+        >
+          <i class="fas fa-pen-alt fa-2x"></i>
+          <h1>JustDoIt</h1>
+        </div>
+      </header>
+      <main class="row h-100">
+        <div class="col-12 col-lg-6 offset-lg-3 py-5">
+          <form
+            id="taskInputForm"
+            class="form-todolist d-flex justify-content-between align-items-center"
+          >
+            <input
+              type="text"
+              id="taskInput"
+              placeholder="Write your task here"
+              autofocus
+            />
+            <button type="submit" id="submitButton">
+              <i class="fas fa-location-arrow"></i>
+            </button>
+          </form>
+          <div id="todoList">
+            <ul id="todoListNotDone"></ul>
+            <ul id="todoListDone"></ul>
+          </div>
+        </div>
+      </main>
+      <footer class="row py-4 footer-todolist">
+        <div class="col-6 col-md-4 text-center align-self-center">
+          <div
+            class="footer-todolist-logo d-flex justify-content-center align-items-center"
+          >
+            <i class="fas fa-pen-alt"></i>
+            <h6>JustDoIt</h6>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 text-center align-self-center">
+          <p>&copy;Copyright 2021 - JustDoIt</p>
+        </div>
+        <div class="col-12 col-md-4 text-center align-self-center">
+          <p>Follow Us</p>
+          <div
+            class="footer-todolist-icons d-flex justify-content-center align-items-center"
+          >
+            <i class="fab fa-facebook-square fa-2x"></i>
+            <i class="fab fa-instagram-square fa-2x"></i>
+            <i class="fab fa-youtube-square fa-2x"></i>
+            <i class="fab fa-twitter-square fa-2x"></i>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

@@ -1,4 +1,25 @@
-.fab{
-    font-size: 3em;
-    padding: 0.5rem;
+.footer-todolist {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+.footer-todolist div:nth-child(2) > p {
+  margin-bottom: 0;
+}
+
+.footer-todolist-logo h6 {
+  margin-bottom: 0;
+  margin-left: 0.5rem;
+}
+
+.footer-todolist-icons {
+  color: var(--primary-color);
+}
+
+.footer-todolist-icons i {
+  margin-left: 2rem;
+}
+
+.footer-todolist-icons i:first-child {
+  margin-left: 0;
 }
