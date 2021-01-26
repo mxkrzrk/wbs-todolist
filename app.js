@@ -49,10 +49,7 @@ function displayTodoList() {
     ? todoListElement.classList.add('todolist')
     : todoListElement.classList.remove('todolist');
   // Order the list based on done property
-  toDoList.sort((prev, next) => {
-    if (prev.done > next.done) return 1;
-    if (prev.done < next.done) return -1;
-  });
+  toDoList.sort((prev, next) => (prev.done > next.done ? 1 : -1));
   // Create the li for each todo in the object
   toDoList.forEach((todo) => {
     const liElement = `
@@ -91,8 +88,6 @@ function editTodoHandle(e) {
       saveUpdateTodoHandle(e);
     }
   };
-  // Update UI
-  displayTodoList();
 }
 
 // Save (Update) the todo updated

@@ -15,3 +15,7 @@ body {
   text-rendering: optimizeLegibility;
   height: 100vh;
 }
+
+[contenteditable] {
+  outline: 0px solid transparent;
+}
