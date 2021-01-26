@@ -3,6 +3,10 @@
   color: var(--light-color);
 }
 
+.footer-todolist div:nth-child(2) > p {
+  margin-bottom: 0;
+}
+
 .footer-todolist-logo h6 {
   margin-bottom: 0;
   margin-left: 0.5rem;

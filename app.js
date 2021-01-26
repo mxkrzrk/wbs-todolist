@@ -36,6 +36,8 @@ function createTodoHandle(e) {
   };
   // Store the todo in the todos list
   toDoList.push(todo);
+  // Clean the form
+  document.forms[0].reset();
   // Display todo list
   displayTodoList();
 }
@@ -43,33 +45,41 @@ function createTodoHandle(e) {
 // Display (Read) todos list
 function displayTodoList() {
   const todoListElement = document.getElementById('todoList');
-  // Clear the list previews
-  todoListElement.innerHTML = '';
+  const todoListNotDone = document.getElementById('todoListNotDone');
+  const todoListDone = document.getElementById('todoListDone');
+  // Clear the lists previews
+  todoListNotDone.innerHTML = '';
+  todoListDone.innerHTML = '';
   toDoList.length > 0
     ? todoListElement.classList.add('todolist')
     : todoListElement.classList.remove('todolist');
-  // Order the list based on done property
-  toDoList.sort((prev, next) => (prev.done > next.done ? 1 : -1));
   // Create the li for each todo in the object
-  toDoList.forEach((todo) => {
-    const liElement = `
-    <li id="${
-      todo.id
-    }" class="d-flex justify-content-between align-items-center">
-      <div>${
-        todo.done
-          ? '<i class="fas fa-check-circle"></i>'
-          : '<i class="fas fa-circle"></i>'
-      }</div>
-      ${
-        todo.done
-          ? `<p class="mb-0 w-100 mx-2 text-decoration-line-through">${todo.task}</p>`
-          : `<p class="mb-0 w-100 mx-2">${todo.task}</p>`
+  toDoList.forEach((todo, index) => {
+    let liElement;
+    if (todo.done) {
+      liElement = `
+      <li id="${todo.id}" class="d-flex justify-content-between align-items-center">
+        <div><i class="fas fa-check-circle"></i></div>
+        <p class="mb-0 w-100 mx-2 text-decoration-line-through">${todo.task}</p>
+        <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+      </li>
+      `;
+      todoListDone.insertAdjacentHTML('beforeend', liElement);
+      if (todoListDone.children.length === 1) {
+        const titleElement =
+          '<div class="todolist-title d-flex justify-content-start align-items-center"><i class="fas fa-tasks"></i><h3>Completed</h3></div>';
+        todoListDone.insertAdjacentHTML('afterbegin', titleElement);
       }
-      <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-    </li>
-    `;
-    todoListElement.insertAdjacentHTML('beforeend', liElement);
+    } else {
+      liElement = `
+      <li id="${todo.id}" class="d-flex justify-content-between align-items-center">
+        <div><i class="far fa-circle"></i></div>
+        <p class="mb-0 w-100 mx-2">${todo.task}</p>
+        <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+      </li>
+      `;
+      todoListNotDone.insertAdjacentHTML('beforeend', liElement);
+    }
   });
 }
 

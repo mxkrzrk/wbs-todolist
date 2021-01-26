@@ -51,13 +51,15 @@
               type="text"
               id="taskInput"
               placeholder="Write your task here"
+              autofocus
             />
             <button type="submit" id="submitButton">
               <i class="fas fa-location-arrow"></i>
             </button>
           </form>
-          <div class="py-4">
-            <ul id="todoList"></ul>
+          <div id="todoList">
+            <ul id="todoListNotDone"></ul>
+            <ul id="todoListDone"></ul>
           </div>
         </div>
       </main>
