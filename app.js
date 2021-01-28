@@ -117,12 +117,14 @@ class ToDoList {
     const todoEditableElement = e.target;
     // Turn off to edit the content
     todoEditableElement.removeAttribute('contenteditable', 'false');
-    // Filter todo in the list of todo
-    const todoFiltered = this._toDoList.filter(
-      (todo) => todo.id === parseInt(e.target.parentNode.id)
-    );
     // Store user input value updated
-    todoFiltered[0].task = todoEditableElement.innerText;
+    const toDoListUpdated = this._toDoList.map(
+      (todo) => 
+        todo.id === parseInt(e.target.parentNode.id) 
+          ? {...todo, task: todoEditableElement.innerText}
+          : {...todo }
+    );
+    this._toDoList = toDoListUpdated;
   };
 
   // Delete todo
